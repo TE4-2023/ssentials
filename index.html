@@ -7,17 +7,24 @@
 </head>
 <body>
     <style>
+        *{
+            margin: 0;
+        }
         .sidenav {
             float: left;
             /*padding-bottom: 100%;*/
             height: 100%;
-            /*osition: absolute;*/
+            position: fixed;
+            width: 150px;
         }
         .topnav {
-            width: 100%;
+            width: auto;
+            height: 50px;
+            
         }
         body {
             align-items: center;
+            overflow-y:hidden;
         }
         div {
             border: 1px solid chartreuse;
@@ -25,9 +32,11 @@
     </style>
         <div class="topnav"><p>Top Nav</p></div>
         <div class="sidenav"><p>Side Nav</p></div>
-        <div>
+        <div style="height: 100%; margin-left:150px; position: fixed; width:100%;">
             <p>Content</p>
             <p>content 1</p>
+            <p>content 1</p>
+            <img src="https://steamuserimages-a.akamaihd.net/ugc/2062135935828798076/1638AE1EF472C943F43C3D2D3665D3C4D906BDAA/?imw=1024&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" alt="breadcat">
         </div>
 </body>
 </html>
