@@ -1,104 +1,128 @@
+/*
+    GLOBAL CSS
+    - Applies everwhere
+*/
+:root {
+    /* COLORS */
+    --bg-color: white;
+    --fg-color: rgba(245, 245, 245, 0.932);
+    --border-color: #cecece;
+
+    /* SIZES */
+    --sidenav-width:         15%;
+    --topnav-height:         10%;
+    --main-font-size:     0.75vw;
+    --border-thickness:      1px;
+
+    /* OTHER */
+    --border-style: solid;
+}
+
 *{
     margin: 0;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-p {
-    font-size: 2.5vh;
-}
 
-h1 {
-    font-size: 3vh;
+
+
+
+/*
+    STANDARD ELEMENTS
+    - Applies to paragraphs. breaks, etc.
+*/
+p, h1 {
+    font-size: var(--main-font-size);
 }
 
 hr {
-    height: 1px;
-    background-color: #cecece;
+    height: var(--border-thickness); /* uses border thickness even though its not a border*/
+    background-color: var(--border-color);
     border: none;
 }
 
+body {
+    align-items: center;
+    overflow-y:hidden;
+}
+
+
+
 
 /* 
-    SIDEBAR FOR WEBSITE
-    - Does not move
+    CLASSES
+    - Applies only to classes and their children.
 */
+
+/*
+    Style guide:
+    1. Content sizes (not font sizes), priority: margin. border, padding, width, height, etc
+    2. Font sizes, biggest header has priority
+    4. Colors, priority goes, bg, fg(if there is a foreground color used), border, anything else.
+
+    Others such as the z-index go last.
+*/
+
+
 .sidenav {
-    float: left;
     margin-top: 0;
+    width: 15%; 
     height: 100%;
+
+    background-color:  var(--fg-color);
+    border-right: var(--border-thickness) var(--border-style) var(--border-color);
+    
+    float: left;
     position: fixed;
-    width: 15%;
     z-index: 2;
-    background-color:  rgba(245, 245, 245, 0.932);
-    border-right: 1px solid #cecece;
 
     /* TOP, RIGHT, BOTTOM, LEFT */
     /*padding: 0.5% 0.75% 0.75% 0.5%;*/
 }
 
-
-/* 
-    TOPBAR FOR WEBSITE
-    - Does not move either
-*/
 .topnav {
-    width: auto;
-    /*height: 100px;*/
-    position: fixed;
-    z-index: 1;
+    margin-left: 15%;
     width: 100%;
     height: 8vh;
-    margin-left: 15%;
-    border-bottom: 1px solid #cecece;
-    background-color: rgb(245, 245, 245);
+
+    background-color: var(--fg-color);
+    border-bottom: var(--border-thickness) var(--border-style) var(--border-color);
+    position: fixed;
+    z-index: 1;
+    
     padding: 0.5% 0% 0.25% 0.5%;
 }
 
 
-/* 
-    MAINT CONTENT FOR WEBSITE
-    - Inside content moves
-*/
+/* Contains the interactibe content */
 .content {
-    margin-left: 15%;
     margin-top: 8vh;
-    height: 100%;
-    position: fixed;
-    width: 100%;
-    overflow: auto;
+    margin-left: 15%;
     padding-left: 15%;
     padding-right: 90%;
-    background-color: white;
-    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
     
+    background-color: var(--bg-color);
+    position: fixed;
+    overflow-x: hidden;
 }
 
 
-/* 
-    TEXT CONTAINER FOR WEBSITE
-*/
+/* Contrasts the content class */
 .container {
     margin-top: 8vh;
-    background-color: rgba(245, 245, 245, 0.932);
-    box-shadow: 2px;
+    padding: 25px;
     width: 55%;
     height: 100%;
-    padding: 25px;
     border-radius: 0.8%;
-    border: 1px solid #cecece;
+
+    background-color: var(--fg-color);
+    border: var(--border-thickness) var(--border-style) var(--border-color);
+
+    box-shadow: 2px;
 }
 
-
-/* OTHER */
-body {
-    align-items: center;
-    overflow-y:hidden;
-}
-div {
-    /*border: 1px solid chartreuse;*/
-}
-
-.stdImg{
-    
-    width: 50%;
+.thumbnail-img {
+    width: 20%; /* 20% the size of the inside of the container class */
 }
