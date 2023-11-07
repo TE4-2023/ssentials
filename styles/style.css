@@ -5,17 +5,20 @@
 :root {
     /* COLORS */
     --bg-color: white;
-    --fg-color: rgba(245, 245, 245, 0.932);
-    --border-color: #cecece;
+    --fg-color: rgb(245, 245, 245);
+    --detail-color: #cecece;
 
     /* SIZES */
-    --sidenav-width:         15%;
-    --topnav-height:         10%;
+    --sidenav-width:         10vw;
+    --sidenav-offset:        11vw;
+    --topnav-height:          4vh;
+    --topnav-offset:          5vh;
     --main-font-size:     0.75vw;
-    --border-thickness:      1px;
+    --hr-height: 2px;
 
     /* OTHER */
-    --border-style: solid;
+    --border: 1px solid #cecece;
+    --pad: 0.5% 0.5% 0.5% 0.5%; /* TOP, RIGHT, BOTTOM, LEFT */
 }
 
 *{
@@ -36,8 +39,8 @@ p, h1 {
 }
 
 hr {
-    height: var(--border-thickness); /* uses border thickness even though its not a border*/
-    background-color: var(--border-color);
+    height: var(--hr-height); /* uses border thickness even though its not a border*/
+    background-color: var(--detail-color);
     border: none;
 }
 
@@ -66,42 +69,45 @@ body {
 
 .sidenav {
     margin-top: 0;
-    width: 15%; 
+    width: var(--sidenav-width); 
     height: 100%;
 
     background-color:  var(--fg-color);
-    border-right: var(--border-thickness) var(--border-style) var(--border-color);
+    border-right: var(--border);
     
     float: left;
     position: fixed;
     z-index: 2;
+    padding: var(--pad);
+}
 
-    /* TOP, RIGHT, BOTTOM, LEFT */
-    /*padding: 0.5% 0.75% 0.75% 0.5%;*/
+#sidenavtoggle {
+    display: none;
 }
 
 .topnav {
-    margin-left: 15%;
+    margin-left: var(--sidenav-offset);
     width: 100%;
-    height: 8vh;
+    height: var(--topnav-height);
 
     background-color: var(--fg-color);
-    border-bottom: var(--border-thickness) var(--border-style) var(--border-color);
+    border-bottom: var(--border);
     position: fixed;
     z-index: 1;
-    
-    padding: 0.5% 0% 0.25% 0.5%;
+
+    padding: var(--pad);
 }
 
 
 /* Contains the interactibe content */
 .content {
-    margin-top: 8vh;
-    margin-left: 15%;
+    margin-top: 5.5vh; /* Previous line of code does not offset correctly */
+    margin-left: var(--sidenav-offset);
     padding-left: 15%;
-    padding-right: 90%;
-    width: 100%;
-    height: 100%;
+    padding-right: 15%;
+    padding-bottom: 5.5vh;
+    width: 59%;
+    height: 89vh;
     
     background-color: var(--bg-color);
     position: fixed;
@@ -111,18 +117,89 @@ body {
 
 /* Contrasts the content class */
 .container {
-    margin-top: 8vh;
+    margin-top: 5%;
     padding: 25px;
-    width: 55%;
+    width: 94%;
     height: 100%;
     border-radius: 0.8%;
 
     background-color: var(--fg-color);
-    border: var(--border-thickness) var(--border-style) var(--border-color);
+    border: var(--border);
 
     box-shadow: 2px;
 }
 
 .thumbnail-img {
     width: 20%; /* 20% the size of the inside of the container class */
+}
+
+
+
+
+
+/*
+    MEDIA CSS
+    - Applies to different sizes of screens
+*/
+
+/* On screens that are 992px or less, set the background color to blue */
+/*@media screen and (max-width: 992px) {
+    .content {
+        background-color: blue;
+    }
+}*/
+  
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 1920px) {
+    :root {
+        /* SIZES */
+        --sidenav-width:         10vw;
+        --sidenav-offset:        11vw;
+        --topnav-height:          4vh;
+        --topnav-offset:          5vh;
+        --main-font-size:     1vw;
+        --hr-height: 2px;
+    
+        /* OTHER */
+        --border: 1px solid #cecece;
+        --pad: 0.5% 0.5% 0.5% 0.5%; /* TOP, RIGHT, BOTTOM, LEFT */
+    }
+}
+
+@media screen and (max-width: 850px) {
+    :root {
+        /* SIZES */
+        --sidenav-width:         80vw;
+        --sidenav-offset:        0vw;
+        --topnav-height:          4vh;
+        --topnav-offset:          5vh;
+        --main-font-size:     2.4vw;
+        --hr-height: 2px;
+    
+        /* OTHER */
+        --border: 1px solid #cecece;
+        --pad: 0.5% 0.5% 0.5% 0.5%; /* TOP, RIGHT, BOTTOM, LEFT */
+    }
+
+    .sidenav {
+        display: none;
+    }
+
+    #sidenavtoggle {
+        display: inherit;
+    }
+
+    .content {
+        margin-top: 5.5vh; /* Previous line of code does not offset correctly */
+        margin-left: var(--sidenav-offset);
+        padding-left: 15%;
+        padding-right: 15%;
+        padding-bottom: 5.5vh;
+        width: 70%;
+        height: 89vh;
+        
+        background-color: var(--bg-color);
+        position: fixed;
+        overflow-x: hidden;
+    }
 }
