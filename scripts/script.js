@@ -1,11 +1,12 @@
-var sideShowing = false
+var sideShowing = false;
+var sidenavbarDisplay = document.getElementById("sidenavbar");
 
 function toggleSidenavbar() {
     if (sideShowing) {
-        document.getElementById("sidenavbar").style.display = "none";
+        sidenavbarDisplay.style.display = "none";
     }
     else {
-        document.getElementById("sidenavbar").style.display = "inherit";
+        sidenavbarDisplay.style.display = "inherit";
     }
     sideShowing = !sideShowing
 }
@@ -17,11 +18,15 @@ function handleTabletChange(e) {
     // Check if the media query is true
     if (e.matches) {
         // Then log the following message to the console
-        document.getElementById("sidenavbar").style.display = "inherit";
+        try{
+            sidenavbarDisplay.style.display = "inherit";
+            
+        } catch(err){
+            console.error(err);
+        }
+
         sideShowing = true;
-        document.getElementsById("sidenavtoggle").forEach(item => {
-            item.style.display = "none";
-        });
+      
     }
 }
 mediaQuery.addListener(handleTabletChange);
@@ -38,11 +43,9 @@ function handleTabletChange2(e) {
     // Check if the media query is true
     if (e.matches) {
         // Then log the following message to the console
-        document.getElementById("sidenavbar").style.display = "none";
+        sidenavbarDisplay.style.display = "none";
         sideShowing = false;
-        document.getElementsById("sidenavtoggle").forEach(item => {
-            item.style.display = "inherit";
-        });
+       
     }
 }
 mediaQuery2.addListener(handleTabletChange2);
