@@ -50,3 +50,42 @@ function handleTabletChange2(e) {
 }
 mediaQuery2.addListener(handleTabletChange2);
 handleTabletChange2(mediaQuery2);
+
+
+// THEME TOGGLE
+// Get the root element
+var r = document.querySelector(':root');
+var isDefaultTheme = true;
+
+// Create a function for getting a variable value
+function myFunction_get() {
+  // Get the styles (properties and values) for the root
+  var rs = getComputedStyle(r);
+  // Alert the value of the --blue variable
+  alert("The value of --blue is: " + rs.getPropertyValue('--text-color'));
+}
+
+// Create a function for setting a variable value
+function theme_toggle() {
+    var rs = getComputedStyle(r);
+    var bg, fg, det, tex;
+    
+    if (isDefaultTheme) {
+        bg = rs.getPropertyValue('--d-bg-color');
+        fg = rs.getPropertyValue('--d-fg-color');
+        det = rs.getPropertyValue('--d-detail-color');
+        tex = rs.getPropertyValue('--d-text-color');
+    }
+    else if (!isDefaultTheme) {
+        bg = rs.getPropertyValue('--l-bg-color');
+        fg = rs.getPropertyValue('--l-fg-color');
+        det = rs.getPropertyValue('--l-detail-color');
+        tex = rs.getPropertyValue('--l-text-color');
+    }
+    r.style.setProperty('--bg-color', bg);
+    r.style.setProperty('--fg-color', fg);
+    r.style.setProperty('--detail-color', det);
+    r.style.setProperty('--text-color', tex);
+
+    isDefaultTheme = !isDefaultTheme;
+}
