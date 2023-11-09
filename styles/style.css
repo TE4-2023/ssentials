@@ -24,18 +24,21 @@
     --fg-color: rgb(245, 245, 245);
     --detail-color: #cecece;
     --text-color: black;
+    --accent-color: var(--detail-color);
 
     /* LIGHT MODE COLORS */
     --l-bg-color: white;
     --l-fg-color: rgb(245, 245, 245);
     --l-detail-color: #cecece;
     --l-text-color: black;
+    --l-accent-color: var(--detail-color);
 
     /* DARK MODE COLORS */
     --d-bg-color: rgb(22, 22, 22);
     --d-fg-color: rgb(59, 59, 59);
     --d-detail-color: #cecece;
     --d-text-color: white;
+    --d-accent-color: var(--d-bg-color);
 
     /* SIZES */
     --sidenav-width:         13vw;
@@ -173,7 +176,7 @@ button {
 }
 
 .sub-container > div:first-child { /* span didnt work*/
-    background-color: var(--bg-color);
+    background-color: var(--accent-color);
     display: flex;
 }
 

@@ -68,24 +68,27 @@ function myFunction_get() {
 // Create a function for setting a variable value
 function theme_toggle() {
     var rs = getComputedStyle(r);
-    var bg, fg, det, tex;
+    var bg, fg, det, tex, acc;
     
     if (isDefaultTheme) {
         bg = rs.getPropertyValue('--d-bg-color');
         fg = rs.getPropertyValue('--d-fg-color');
         det = rs.getPropertyValue('--d-detail-color');
         tex = rs.getPropertyValue('--d-text-color');
+        acc = rs.getPropertyValue('--d-accent-color');
     }
     else if (!isDefaultTheme) {
         bg = rs.getPropertyValue('--l-bg-color');
         fg = rs.getPropertyValue('--l-fg-color');
         det = rs.getPropertyValue('--l-detail-color');
         tex = rs.getPropertyValue('--l-text-color');
+        acc = rs.getPropertyValue('--l-accent-color');
     }
     r.style.setProperty('--bg-color', bg);
     r.style.setProperty('--fg-color', fg);
     r.style.setProperty('--detail-color', det);
     r.style.setProperty('--text-color', tex);
+    r.style.setProperty('--accent-color', acc);
 
     isDefaultTheme = !isDefaultTheme;
 }
