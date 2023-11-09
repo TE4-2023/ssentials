@@ -47,7 +47,7 @@
 
     /* OTHER */
     --border: 1px solid #cecece;
-    --content-padding: 0.5% 0.5% 0.5% 0.5%; /* TOP, RIGHT, BOTTOM, LEFT */
+    --content-padding: 0.5vh 0.5vw 0.5vh 0.5vw; /* TOP, RIGHT, BOTTOM, LEFT */
 }
 
 *{
@@ -118,7 +118,7 @@ hr {
     padding-right: 15%;
     padding-bottom: 5.5vh;
     width: 59%;
-    height: 89vh;
+    height: 89.5vh;
     
     background-color: var(--bg-color);
     position: fixed;
@@ -153,22 +153,7 @@ hr {
     - Applies to different sizes of screens
 */
 
-@media screen and (max-width: 1920px) {
-    :root {
-        /* SIZES */
-        --sidenav-width:         10vw;
-        --sidenav-offset:        11vw;
-        --topnav-height:          4vh;
-        --topnav-offset:          5vh;
-        --main-font-size:         1vw;
-        --hr-height:              2px;
-    
-        /* OTHER */
-        --border: 1px solid #cecece;
-        --content-padding: 0.5% 0.5% 0.5% 0.5%; /* TOP, RIGHT, BOTTOM, LEFT */
-    }
-}
-
+/* MOBILE */
 @media screen and (max-width: 850px) {
     :root {
         /* SIZES */
@@ -181,11 +166,12 @@ hr {
     
         /* OTHER */
         --border: 1px solid #cecece;
-        --content-padding: 0.5% 0.5% 0.5% 0.5%; /* TOP, RIGHT, BOTTOM, LEFT */
+        --content-padding: 0.5vh 0.5vh 0.5vh 0.5vh; /* TOP, RIGHT, BOTTOM, LEFT */
     }
 
     .sidenav {
         display: none;
+        padding: 0.5vh 0.5vh 0.5vh 0.5vh;
     }
 
     #sidenavtoggle {
@@ -193,7 +179,7 @@ hr {
     }
 
     .content {
-        margin-top: 5.5vh; /* Previous line of code does not offset correctly */
+        margin-top: 5vh; /* Previous line of code does not offset correctly */
         margin-left: var(--sidenav-offset);
         padding-left: 15%;
         padding-right: 15%;
