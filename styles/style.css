@@ -128,21 +128,19 @@ button {
     margin-left: var(--sidenav-offset);
     padding-left: var(--content-side-padding);
     padding-bottom: 5.5vh;
-    width: calc(100vw - var(--sidenav-offset) - padding-left);
+    width: 45%;
     height: 100%;
     padding-right: 25%;
     
     background-color: var(--bg-color);
     position: fixed;
     overflow-x: hidden;
+    padding-right: calc(calc(100vw - var(--sidenav-offset)) - calc(var(--content-side-padding) - 45%));
 }
 
 
 /* Contrasts the content class */
 .container {
-    display: flex;
-    flex-flow: wrap;
-    justify-content: space-between;
     margin-top: 2.5%;
     padding: var(--content-padding);
     width: calc(100% - var(--content-side-padding));
@@ -155,12 +153,18 @@ button {
     box-shadow: 2px;
 
     padding-bottom: 0;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.sub-container-column {
+    width: calc(50% - 1%);
+    padding-bottom: 1%;
 }
 
 .sub-container {
     border: var(--border);
-    border-radius: 3px;
-    width: calc(50% - 1%);
+    border-radius: 3px; 
     height: fit-content;
     margin-bottom: 1%;
 }
