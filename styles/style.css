@@ -89,7 +89,7 @@ hr {
     float: left;
     position: fixed;
     z-index: 2;
-    padding: var(--pad);
+    padding: var(--content-padding);
 }
 
 #sidenavtoggle {
@@ -112,7 +112,7 @@ hr {
 
 /* Contains the interactibe content */
 .content {
-    margin-top: 5.5vh; /* Previous line of code does not offset correctly */
+    margin-top: var(--topnav-offset); /* Previous line of code does not offset correctly */
     margin-left: var(--sidenav-offset);
     padding-left: 15%;
     padding-right: 15%;
@@ -165,7 +165,7 @@ hr {
     
         /* OTHER */
         --border: 1px solid #cecece;
-        --pad: 0.5% 0.5% 0.5% 0.5%; /* TOP, RIGHT, BOTTOM, LEFT */
+        --content-padding: 0.5% 0.5% 0.5% 0.5%; /* TOP, RIGHT, BOTTOM, LEFT */
     }
 }
 
@@ -181,7 +181,7 @@ hr {
     
         /* OTHER */
         --border: 1px solid #cecece;
-        --pad: 0.5% 0.5% 0.5% 0.5%; /* TOP, RIGHT, BOTTOM, LEFT */
+        --content-padding: 0.5% 0.5% 0.5% 0.5%; /* TOP, RIGHT, BOTTOM, LEFT */
     }
 
     .sidenav {
