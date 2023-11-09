@@ -1,7 +1,23 @@
 /*
+    Incognito's experinmental:
+    STYLE GUIDE - How to make your css classes more readable
+    +-------------------------------------------------------------------------------------------------+
+    |1. Content sizes (not font sizes), priority: margin. border, padding, width, height, etc         |
+    |2. Font sizes, biggest header has priority                                                       |
+    |4. Colors, priority goes, bg, fg(if there is a foreground color used), border, anything else.    |
+    |                                                                                                 |
+    |Others such as the z-index go last.                                                              |
+    +-------------------------------------------------------------------------------------------------+
+*/
+
+
+
+
+/*
     GLOBAL CSS
     - Applies everwhere
 */
+
 :root {
     /* COLORS */
     --bg-color: white;
@@ -10,7 +26,7 @@
     --text-color: black;
 
     /* LIGHT MODE COLORS */
-    --ld-bg-color: white;
+    --l-bg-color: white;
     --l-fg-color: rgb(245, 245, 245);
     --l-detail-color: #cecece;
     --l-text-color: black;
@@ -22,34 +38,27 @@
     --d-text-color: white;
 
     /* SIZES */
-    --sidenav-width:         10vw;
-    --sidenav-offset:        11vw;
-    --topnav-height:          4vh;
-    --topnav-offset:          5vh;
-    --main-font-size:     0.75vw;
-    --hr-height: 2px;
+    --sidenav-width:         13vw;
+    --sidenav-offset:        14vw;
+    --main-font-size:      0.75vw;
+    --hr-height:              2px;
 
     /* OTHER */
     --border: 1px solid #cecece;
-    --pad: 0.5% 0.5% 0.5% 0.5%; /* TOP, RIGHT, BOTTOM, LEFT */
+    --content-padding: 0.5vh 0.5vw 0.5vh 0.5vw; /* TOP, RIGHT, BOTTOM, LEFT */
 }
 
 *{
     margin: 0;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-size: var(--main-font-size);
+
     color: var(--text-color);
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-
-
-
-
-/*
-    STANDARD ELEMENTS
-    - Applies to paragraphs. breaks, etc.
-*/
-p, h1 {
-    font-size: var(--main-font-size);
+body {
+    align-items: center;
+    overflow-y:hidden;
 }
 
 hr {
@@ -58,10 +67,17 @@ hr {
     border: none;
 }
 
-body {
-    align-items: center;
-    overflow-y:hidden;
+button {
+    background-color: var(--fg-color);
+    outline: none;
+    box-shadow: none;
+    border-radius: 2px;
+    text-align: center;
+    display: inline-block;
+    border: none;
+    border: var(--border);
 }
+
 
 
 
@@ -70,16 +86,6 @@ body {
     CLASSES
     - Applies only to classes and their children.
 */
-
-/*
-    Style guide:
-    1. Content sizes (not font sizes), priority: margin. border, padding, width, height, etc
-    2. Font sizes, biggest header has priority
-    4. Colors, priority goes, bg, fg(if there is a foreground color used), border, anything else.
-
-    Others such as the z-index go last.
-*/
-
 
 .sidenav {
     margin-top: 0;
@@ -92,36 +98,22 @@ body {
     float: left;
     position: fixed;
     z-index: 2;
-    padding: var(--pad);
+    padding: var(--content-padding);
 }
 
 #sidenavtoggle {
     display: none;
 }
 
-.topnav {
-    margin-left: var(--sidenav-offset);
-    width: 100%;
-    height: var(--topnav-height);
-
-    background-color: var(--fg-color);
-    border-bottom: var(--border);
-    position: fixed;
-    z-index: 1;
-
-    padding: var(--pad);
-}
-
 
 /* Contains the interactibe content */
 .content {
-    margin-top: 5.5vh; /* Previous line of code does not offset correctly */
     margin-left: var(--sidenav-offset);
-    padding-left: 15%;
-    padding-right: 15%;
+    padding-left: 2%;
+    padding-right: 28%;
     padding-bottom: 5.5vh;
     width: 59%;
-    height: 89vh;
+    height: 100%;
     
     background-color: var(--bg-color);
     position: fixed;
@@ -131,7 +123,7 @@ body {
 
 /* Contrasts the content class */
 .container {
-    margin-top: 5%;
+    margin-top: 2.5%;
     padding: 25px;
     width: 94%;
     height: 100%;
@@ -156,47 +148,25 @@ body {
     - Applies to different sizes of screens
 */
 
-/* On screens that are 992px or less, set the background color to blue */
-/*@media screen and (max-width: 992px) {
-    .content {
-        background-color: blue;
-    }
-}*/
-  
-/* On screens that are 600px or less, set the background color to olive */
-@media screen and (max-width: 1920px) {
-    :root {
-        /* SIZES */
-        --sidenav-width:         10vw;
-        --sidenav-offset:        11vw;
-        --topnav-height:          4vh;
-        --topnav-offset:          5vh;
-        --main-font-size:     1vw;
-        --hr-height: 2px;
-    
-        /* OTHER */
-        --border: 1px solid #cecece;
-        --pad: 0.5% 0.5% 0.5% 0.5%; /* TOP, RIGHT, BOTTOM, LEFT */
-    }
-}
-
+/* MOBILE */
 @media screen and (max-width: 850px) {
     :root {
         /* SIZES */
         --sidenav-width:         80vw;
-        --sidenav-offset:        0vw;
+        --sidenav-offset:         0vw;
         --topnav-height:          4vh;
         --topnav-offset:          5vh;
-        --main-font-size:     2.4vw;
-        --hr-height: 2px;
+        --main-font-size:       2.4vw;
+        --hr-height:              2px;
     
         /* OTHER */
         --border: 1px solid #cecece;
-        --pad: 0.5% 0.5% 0.5% 0.5%; /* TOP, RIGHT, BOTTOM, LEFT */
+        --content-padding: 0.5vh 0.5vh 0.5vh 0.5vh; /* TOP, RIGHT, BOTTOM, LEFT */
     }
 
     .sidenav {
         display: none;
+        padding: 0.5vh 0.5vh 0.5vh 0.5vh;
     }
 
     #sidenavtoggle {
@@ -204,7 +174,7 @@ body {
     }
 
     .content {
-        margin-top: 5.5vh; /* Previous line of code does not offset correctly */
+        margin-top: 5vh; /* Previous line of code does not offset correctly */
         margin-left: var(--sidenav-offset);
         padding-left: 15%;
         padding-right: 15%;
