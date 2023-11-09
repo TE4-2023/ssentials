@@ -39,13 +39,16 @@
 
     /* SIZES */
     --sidenav-width:         13vw;
-    --sidenav-offset:        14vw;
+    --sidenav-offset:      calc(var(--sidenav-width) + var(--tb-padding));
+    --tb-padding:             1vw;
     --main-font-size:      0.75vw;
     --hr-height:              2px;
+    --content-side-padding: 2%;
 
     /* OTHER */
     --border: 1px solid #cecece;
-    --content-padding: 0.5vh 0.5vw 0.5vh 0.5vw; /* TOP, RIGHT, BOTTOM, LEFT */
+    --v-pad: calc(var(--tb-padding)/2);
+    --content-padding: var(--v-pad) var(--v-pad) var(--v-pad) var(--v-pad); /* TOP, RIGHT, BOTTOM, LEFT */
 }
 
 *{
@@ -98,7 +101,7 @@ button {
     float: left;
     position: fixed;
     z-index: 3;
-    padding: var(--pad);
+    padding: var(--content-padding);
 }
 
 .head {
@@ -120,11 +123,11 @@ button {
 /* Contains the interactibe content */
 .content {
     margin-left: var(--sidenav-offset);
-    padding-left: 2%;
-    padding-right: 28%;
+    padding-left: var(--content-side-padding);
     padding-bottom: 5.5vh;
-    width: 59%;
+    width: calc(100vw - var(--sidenav-offset) - padding-left);
     height: 100%;
+    padding-right: 25%;
     
     background-color: var(--bg-color);
     position: fixed;
@@ -134,28 +137,56 @@ button {
 
 /* Contrasts the content class */
 .container {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
     margin-top: 2.5%;
-    padding: 25px;
-    width: 94%;
-    height: 100%;
+    padding: var(--content-padding);
+    width: calc(100% - var(--content-side-padding));
+    min-height: 25%;
     border-radius: 0.8%;
 
     background-color: var(--fg-color);
     border: var(--border);
 
     box-shadow: 2px;
+
+    padding-bottom: 0;
+}
+
+.sub-container {
+    border: var(--border);
+    border-radius: 3px;
+    width: calc(50% - 1%);
+    height: fit-content;
+    margin-bottom: 1%;
+}
+
+.sub-container > div { /* span didnt work*/
+    padding: var(--content-padding);
+    border-bottom: var(--border);
+    height: min-content;
+}
+
+.sub-container > div:last-child { /* span didnt work*/
+    border-bottom: none;
+}
+
+.sub-container > div:first-child { /* span didnt work*/
+    background-color: var(--detail-color);
+    display: flex;
 }
 
 .thumbnail-img {
-    width: 20%; /* 20% the size of the inside of the container class */
+    width: 60%; /* 20% the size of the inside of the container class */
 }
 
 .foot {
-    margin-top: 10%;
-    padding-top: 10%;
+    margin-top: 4%;
+    padding-top: 4%;
     border-top: 2px solid #cecece;
     width: 100%;
-    margin-bottom: 25%;
+    margin-bottom: 15%;
     display: inline-flex;
     gap: 10px;
     justify-content: center;
@@ -216,5 +247,11 @@ button {
     .container {
         width: 90%;
         margin-top: 10%;
+    }
+
+    .foot {
+        margin-top: 10%;
+        padding-top: 10%;
+        margin-bottom: 25%;
     }
 }
