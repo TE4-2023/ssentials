@@ -173,7 +173,7 @@ button {
 }
 
 .sub-container > div:first-child { /* span didnt work*/
-    background-color: var(--detail-color);
+    background-color: var(--bg-color);
     display: flex;
 }
 
