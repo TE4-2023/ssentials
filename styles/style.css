@@ -250,10 +250,18 @@ button {
         overflow-x: hidden;
     }
 
+    .sub-container-column {
+        width: 100%;
+        padding-bottom: 1%;
+    }
+
     /* Contrasts the content class */
     .container {
         width: 90%;
         margin-top: 10%;
+        
+        display: block;
+        justify-content: space-between;
     }
 
     .foot {
