@@ -38,10 +38,8 @@
     --d-text-color: white;
 
     /* SIZES */
-    --sidenav-width:         10vw;
-    --sidenav-offset:        11vw;
-    --topnav-height:          4vh;
-    --topnav-offset:          5vh;
+    --sidenav-width:         13vw;
+    --sidenav-offset:        14vw;
     --main-font-size:      0.75vw;
     --hr-height:              2px;
 
@@ -96,29 +94,15 @@ hr {
     display: none;
 }
 
-.topnav {
-    margin-left: var(--sidenav-offset);
-    width: 100%;
-    height: var(--topnav-height);
-
-    background-color: var(--fg-color);
-    border-bottom: var(--border);
-    position: fixed;
-    z-index: 1;
-
-    padding: var(--content-padding);
-}
-
 
 /* Contains the interactibe content */
 .content {
-    margin-top: var(--topnav-offset); /* Previous line of code does not offset correctly */
     margin-left: var(--sidenav-offset);
-    padding-left: 15%;
-    padding-right: 15%;
+    padding-left: 2%;
+    padding-right: 28%;
     padding-bottom: 5.5vh;
     width: 59%;
-    height: 89.5vh;
+    height: 100%;
     
     background-color: var(--bg-color);
     position: fixed;
@@ -128,7 +112,7 @@ hr {
 
 /* Contrasts the content class */
 .container {
-    margin-top: 5%;
+    margin-top: 2.5%;
     padding: 25px;
     width: 94%;
     height: 100%;
