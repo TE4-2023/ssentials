@@ -97,14 +97,25 @@ button {
     
     float: left;
     position: fixed;
+    z-index: 3;
+    padding: var(--pad);
+}
+
+.head {
+    display: none;
+    width: 100%;
+    background-color: var(--fg-color);
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-bottom: var(--border);
+    position: fixed;
+    overflow: hidden;
     z-index: 2;
-    padding: var(--content-padding);
 }
 
 #sidenavtoggle {
     display: none;
 }
-
 
 /* Contains the interactibe content */
 .content {
@@ -139,6 +150,16 @@ button {
     width: 20%; /* 20% the size of the inside of the container class */
 }
 
+.foot {
+    margin-top: 10%;
+    padding-top: 10%;
+    border-top: 2px solid #cecece;
+    width: 100%;
+    margin-bottom: 25%;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+}
 
 
 
@@ -169,21 +190,31 @@ button {
         padding: 0.5vh 0.5vh 0.5vh 0.5vh;
     }
 
+    .head {
+        display: inherit;
+    }
+
     #sidenavtoggle {
         display: inherit;
     }
 
     .content {
-        margin-top: 5vh; /* Previous line of code does not offset correctly */
+        margin-top: 7%;
         margin-left: var(--sidenav-offset);
-        padding-left: 15%;
-        padding-right: 15%;
+        padding-left: 5%;
+        padding-right: 5%;
         padding-bottom: 5.5vh;
-        width: 70%;
-        height: 89vh;
+        width: 90%;
+        height: 100%;
         
         background-color: var(--bg-color);
         position: fixed;
         overflow-x: hidden;
+    }
+
+    /* Contrasts the content class */
+    .container {
+        width: 90%;
+        margin-top: 10%;
     }
 }
