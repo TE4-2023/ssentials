@@ -67,6 +67,17 @@ hr {
     border: none;
 }
 
+button {
+    background-color: var(--fg-color);
+    outline: none;
+    box-shadow: none;
+    border-radius: 2px;
+    text-align: center;
+    display: inline-block;
+    border: none;
+    border: var(--border);
+}
+
 
 
 

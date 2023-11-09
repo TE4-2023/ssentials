@@ -38,6 +38,7 @@
         <button onclick="toggleSidenavbar()" id="sidenavtoggle">hamburgerbar</button>
         <h1>Hello, Student!</h1>
         <p>Your profile</p>
+        <button onclick="theme_toggle()">Toggle theme</button>
     </div>
 
     <!-- Contains content for the landing page -->
@@ -76,6 +77,7 @@
 <script>
     // Get the root element
     var r = document.querySelector(':root');
+    var isDefaultTheme = true;
     
     // Create a function for getting a variable value
     function myFunction_get() {
@@ -86,28 +88,28 @@
     }
     
     // Create a function for setting a variable value
-    function theme_set(theme) {
+    function theme_toggle() {
         var rs = getComputedStyle(r);
         var bg, fg, det, tex;
-        if (theme == "dark") {
+        
+        if (isDefaultTheme) {
             bg = rs.getPropertyValue('--d-bg-color');
             fg = rs.getPropertyValue('--d-fg-color');
             det = rs.getPropertyValue('--d-detail-color');
             tex = rs.getPropertyValue('--d-text-color');
         }
-        else if (theme  == "light") {
+        else if (!isDefaultTheme) {
             bg = rs.getPropertyValue('--l-bg-color');
             fg = rs.getPropertyValue('--l-fg-color');
             det = rs.getPropertyValue('--l-detail-color');
             tex = rs.getPropertyValue('--l-text-color');
         }
-        else {
-            return;
-        }
         r.style.setProperty('--bg-color', bg);
         r.style.setProperty('--fg-color', fg);
         r.style.setProperty('--detail-color', det);
         r.style.setProperty('--text-color', tex);
+
+        isDefaultTheme = !isDefaultTheme;
     }
-    theme_set("dark");
+    //theme_toggle();
 </script>
