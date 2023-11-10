@@ -107,6 +107,30 @@ button {
     padding: var(--content-padding);
 }
 
+.sidenav-button {
+    padding-left: 0;
+    height: 6vh;
+    width: 100%;
+    float: right;
+    padding-right: 0;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    display: inline;
+}
+
+.sidenav-button:hover {
+    background-color: var(--accent-color);
+}
+
+.sidenav-button > ion-icon {
+    width: 2vw;
+    height: 2vw;
+    float: left;
+    
+    z-index: 20;
+}
+
 .head {
     display: none;
     width: 100%;
