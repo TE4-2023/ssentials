@@ -24,28 +24,34 @@
     --fg-color: rgb(245, 245, 245);
     --detail-color: #cecece;
     --text-color: black;
+    --accent-color: var(--detail-color);
 
     /* LIGHT MODE COLORS */
     --l-bg-color: white;
     --l-fg-color: rgb(245, 245, 245);
     --l-detail-color: #cecece;
     --l-text-color: black;
+    --l-accent-color: var(--detail-color);
 
     /* DARK MODE COLORS */
     --d-bg-color: rgb(22, 22, 22);
     --d-fg-color: rgb(59, 59, 59);
     --d-detail-color: #cecece;
     --d-text-color: white;
+    --d-accent-color: var(--d-bg-color);
 
     /* SIZES */
     --sidenav-width:         13vw;
-    --sidenav-offset:        14vw;
+    --sidenav-offset:      calc(var(--sidenav-width) + var(--tb-padding));
+    --tb-padding:             1vw;
     --main-font-size:      0.75vw;
     --hr-height:              2px;
+    --content-side-padding: 2%;
 
     /* OTHER */
     --border: 1px solid #cecece;
-    --content-padding: 0.5vh 0.5vw 0.5vh 0.5vw; /* TOP, RIGHT, BOTTOM, LEFT */
+    --v-pad: calc(var(--tb-padding)/2);
+    --content-padding: var(--v-pad) var(--v-pad) var(--v-pad) var(--v-pad); /* TOP, RIGHT, BOTTOM, LEFT */
 }
 
 *{
@@ -97,48 +103,125 @@ button {
     
     float: left;
     position: fixed;
-    z-index: 2;
+    z-index: 3;
     padding: var(--content-padding);
+}
+
+.sidenav-button {
+    padding-left: 0;
+    height: 6vh;
+    width: 100%;
+    float: right;
+    padding-right: 0;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    display: inline;
+}
+
+.sidenav-button:hover {
+    background-color: var(--accent-color);
+}
+
+.sidenav-button > ion-icon {
+    width: 2vw;
+    height: 2vw;
+    float: left;
+    
+    z-index: 20;
+}
+
+.head {
+    display: none;
+    width: 100%;
+    background-color: var(--fg-color);
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-bottom: var(--border);
+    position: fixed;
+    overflow: hidden;
+    z-index: 2;
 }
 
 #sidenavtoggle {
     display: none;
 }
 
-
 /* Contains the interactibe content */
 .content {
     margin-left: var(--sidenav-offset);
-    padding-left: 2%;
-    padding-right: 28%;
+    padding-left: var(--content-side-padding);
     padding-bottom: 5.5vh;
-    width: 59%;
+    width: 45%;
     height: 100%;
+    padding-right: 25%;
     
     background-color: var(--bg-color);
     position: fixed;
     overflow-x: hidden;
+    padding-right: calc(calc(100vw - var(--sidenav-offset)) - calc(var(--content-side-padding) - 45%));
 }
 
 
 /* Contrasts the content class */
 .container {
     margin-top: 2.5%;
-    padding: 25px;
-    width: 94%;
-    height: 100%;
+    padding: var(--content-padding);
+    width: calc(100% - var(--content-side-padding));
+    min-height: 25%;
     border-radius: 0.8%;
 
     background-color: var(--fg-color);
     border: var(--border);
 
     box-shadow: 2px;
+
+    padding-bottom: 0;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.sub-container-column {
+    width: calc(50% - 1%);
+    padding-bottom: 1%;
+}
+
+.sub-container {
+    border: var(--border);
+    border-radius: 3px; 
+    height: fit-content;
+    margin-bottom: 4%;
+}
+
+.sub-container > div { /* span didnt work*/
+    padding: var(--content-padding);
+    border-bottom: var(--border);
+    height: min-content;
+}
+
+.sub-container > div:last-child { /* span didnt work*/
+    border-bottom: none;
+}
+
+.sub-container > div:first-child { /* span didnt work*/
+    background-color: var(--accent-color);
+    display: flex;
 }
 
 .thumbnail-img {
-    width: 20%; /* 20% the size of the inside of the container class */
+    width: 60%; /* 20% the size of the inside of the container class */
 }
 
+.foot {
+    margin-top: 4%;
+    padding-top: 4%;
+    border-top: 2px solid #cecece;
+    width: 100%;
+    margin-bottom: 15%;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+}
 
 
 
@@ -164,9 +247,41 @@ button {
         --content-padding: 0.5vh 0.5vh 0.5vh 0.5vh; /* TOP, RIGHT, BOTTOM, LEFT */
     }
 
+    * {
+        font-size: 3vw;
+    }
+
     .sidenav {
         display: none;
+        font-size: 3vw;
         padding: 0.5vh 0.5vh 0.5vh 0.5vh;
+    }
+
+    .sidenav > * {
+        font-size: 5vw;
+    }
+
+    .sidenav > a > * {
+        font-size: 5vw;
+    }
+
+    .sidenav > * > ion-icon {
+        height: 20vh;
+        height: 4vh; width: 7vw;
+    }
+
+    .sidenav > * > * > ion-icon {
+        height: 20vh;
+        height: 4vh; width: 7vw;
+    }
+
+    ion-icon {
+        height: 20vh;
+        height: 4vh; width: 7vw;
+    }
+
+    .head {
+        display: inherit;
     }
 
     #sidenavtoggle {
@@ -174,16 +289,36 @@ button {
     }
 
     .content {
-        margin-top: 5vh; /* Previous line of code does not offset correctly */
+        margin-top: 14%;
         margin-left: var(--sidenav-offset);
-        padding-left: 15%;
-        padding-right: 15%;
+        padding-left: 2%;
+        padding-right: 2%;
         padding-bottom: 5.5vh;
-        width: 70%;
-        height: 89vh;
+        width: 96%;
+        height: 100%;
         
         background-color: var(--bg-color);
         position: fixed;
         overflow-x: hidden;
+    }
+
+    .sub-container-column {
+        width: 100%;
+        padding-bottom: 1%;
+    }
+
+    /* Contrasts the content class */
+    .container {
+        width: 98%;
+        margin-top: 5%;
+        
+        display: block;
+        justify-content: space-between;
+    }
+
+    .foot {
+        margin-top: 10%;
+        padding-top: 10%;
+        margin-bottom: 25%;
     }
 }
